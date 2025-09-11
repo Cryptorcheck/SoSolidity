@@ -1,0 +1,13 @@
+{
+  "name": "SoSolidity",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Cryptorcheck/SoSolidity.git",
+  "author": "Ivan <243979384@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@openzeppelin/contracts": "^5.4.0",
+    "hardhat": "^3.0.6"
+  }
+}
