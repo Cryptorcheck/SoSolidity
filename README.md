@@ -29,6 +29,17 @@
   - [位运算符](./02_Forward/10_BitwiseOperator/10_BitwiseOperator.sol)
 
 - [高级](./03_Advance/)
+  - [Keccak256、abi.encode、abi.encodePacked](./03_Advance/01_Keccak256/01_Keccak256.sol)
+  - [签名和验证](./03_Advance/02_SignatureAndVerify/02_SignatureAndVerify.sol)
+  - [高级权限控制](./03_Advance/03_AccessControl/03_AccessControl.sol)
+  - [ERC20和ERC721](./03_Advance/04_ERC20&ERC721/04_ERC20&ERC721.sol)
+  - [ERC20实现](./03_Advance/05_ERC20Impelement/05_ERC20Impelement.sol)
+  - [ERC721实现](./03_Advance/06_ERC721Impelement/06_ERC721Impelement.sol)
+  - [多签钱包](./03_Advance/07_MultiSigWallet/07_MultiSigWallet.sol)
+  - [函数选择器](./03_Advance/08_FunctionSelector/08_FunctionSelector.sol)
+  - [燃料高尔夫](./03_Advance/09_GasGolf/09_GasGolf.sol)
+  - [时间锁](./03_Advance/10_TimeLock/10_TimeLock.sol)
+  - [重入攻击](./03_Advance/11_ReentrancyAttack/11_ReentrancyAttack.sol)
 - [专业](./04_Profession/)
 - [框架](./05_Framework/)
 
