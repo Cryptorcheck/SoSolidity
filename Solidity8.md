@@ -61,5 +61,12 @@ contract TestHelper {
 ```
 
 ## import别名
+```sol
+import { Unauthorized, helper as helper1  } from "./Sol.sol"
 
-## Create2
+function helper () pure returns(uint) {
+  return x * 2;
+}
+```
+
+## Create2使用
