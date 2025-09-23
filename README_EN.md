@@ -3,7 +3,7 @@
 
 [中文目录](./README.md)
 
-Relearn the details of Solidity. Welcome everyone to learn and exchange together ~
+Relearning the details of Solidity is aimed at identifying and filling in any gaps. Welcome everyone to learn and exchange ideas together ~
 
 ### Catalog
 - [Basic](./01_Basic/)

@@ -3,7 +3,7 @@
 
 [English Catalog](./README_EN.md)
 
-重学Solidity细节，欢迎大家一起学习交流～
+重学Solidity细节，旨在查漏补缺，欢迎大家一起学习交流～
 
 ### 目录
 - [基础](./01_Basic/)

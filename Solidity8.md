@@ -34,7 +34,7 @@ contract CustomError {
     }
   }
 
-  // 自定义错误
+  // 自定义错误，可以节约gas
   error Unauthorized(address caller);
 
   function testCustomRevert() public {
