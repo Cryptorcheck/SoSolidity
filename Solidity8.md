@@ -47,6 +47,18 @@ contract CustomError {
 ```
 
 ## 合约外函数
+- 合约外函数类似library中的工具函数，无法访问状态变量
+```sol
+function helper (uint x) pure returns(uint) {
+  return x * 2;
+}
+
+contract TestHelper {
+  function test () public {
+    return helper(123);
+  }
+}
+```
 
 ## import别名
 
