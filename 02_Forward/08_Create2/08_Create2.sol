@@ -2,6 +2,7 @@
 pragma solidity 0.8.23;
 
 // 本节内容：使用Create2提前计算合约部署地址
+// 在uniswap的配对合约中经常使用
 
 contract DeployWithCreate2 {
     address public owner;
