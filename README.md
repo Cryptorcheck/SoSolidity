@@ -3,7 +3,14 @@
 
 重学Solidity细节，欢迎大家一起学习交流～
 
-TODO: 补全目录
+## 目录
+- [基础](./01_Basic/)
+  - [Helloworld和Counter](./01_Basic/01_HelloWorld/01_HelloWorld.sol)
+  - [数据类型](./01_Basic/02_DataType/02_DataType.sol)
+  - [函数](./01_Basic/03_Function/03_Function.sol)
+  - [全局变量](./01_Basic/04_GlobalVariables/04_GlobalVariables.sol)
+  - [常量和不可变变量](./01_Basic/05_Constant/05_Constant.sol)
+
 
 ## 参考
 
