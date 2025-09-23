@@ -6,23 +6,47 @@
 contract SafeMath {
   function testUnderFlow() public pure returns(uint) {
     uint x = 0;
+    // x-- 后溢出，因为有安全数学校验导致报错
     x--;
     return x;
   }
 
   function testUncheckUnderFlow() public pure returns(uint) {
     uint x = 0;
-    unchecked{ x--; } // unchecked可以得到无安全数学的结果
+    // unchecked可以得到无安全数学的结果，得到uint256的最大值 
+    unchecked{ x--; } 
     return x;
   }
 }
 ```
 
 ## 自定义错误
-- 
+```sol
+contract CustomError {
+  address public owner;
+  constructor () {
+    owner = msg.sender;
+  }
+
+  function testRevert() public {
+    if (msg.sender != owner) {
+      revert("error"); // 消耗gas与字符串长度有关
+    }
+  }
+
+  // 自定义错误
+  error Unauthorized(address caller);
+
+  function testCustomRevert() public {
+    if (msg.sender != owner) {
+      // revert自定义错误
+      revert Unauthorized(msg.sender);
+    }
+  }
+}
+```
 
 ## 合约外函数
-- 
 
 ## import别名
 
