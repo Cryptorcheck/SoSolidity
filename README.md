@@ -24,7 +24,7 @@
   - [通过接口调用其他合约](./02_Forward/03_CallOtherContractByInterface/03_CallOtherContractByInterface.sol)
   - [Call方法调用其他合约](./02_Forward/04_Call/04_Call.sol)
   - [代理调用：delegatecall方法](./02_Forward/05_DelegateCall/05_DelegateCall.sol)
-  - [new关键字和工程合约](./02_Forward/06_NewAndFactory/06_NewAndFactory.sol)
+  - [new关键字和工厂合约](./02_Forward/06_NewAndFactory/06_NewAndFactory.sol)
   - [复用代码：library](./02_Forward/07_Library/07_Library.sol)
   - [提前计算合约部署地址：Create2](./02_Forward/08_Create2/08_Create2.sol)
   - [abi.decode](./02_Forward/09_AbiDecode/09_AbiDecode.sol)
