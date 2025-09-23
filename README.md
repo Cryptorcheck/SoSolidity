@@ -1,9 +1,11 @@
 
 # SoSolidity
 
+[English Catalog](./README_EN.md)
+
 重学Solidity细节，欢迎大家一起学习交流～
 
-## 目录
+### 目录
 - [基础](./01_Basic/)
   - [Helloworld和Counter](./01_Basic/01_HelloWorld/01_HelloWorld.sol)
   - [数据类型](./01_Basic/02_DataType/02_DataType.sol)
@@ -41,9 +43,13 @@
   - [时间锁](./03_Advance/10_TimeLock/10_TimeLock.sol)
   - [重入攻击](./03_Advance/11_ReentrancyAttack/11_ReentrancyAttack.sol)
 - [专业](./04_Profession/)
+  - [合约-荷兰拍卖](./04_Profession/01_DutchAuction/01_DutchAuction.sol)
+  - [合约-英式拍卖](./04_Profession/02_EnglishAuction/02_EnglishAuction.sol)
+  - [合约-众筹](./04_Profession/03_CrowdFund/03_CrowdFund.sol)
+  - [合约-包装ETH](./04_Profession/04_WETH/04_WETH.sol)
 - [框架](./05_Framework/)
 
-## 参考
+### 参考
 
 - [Solidity 官方文档](https://docs.soliditylang.org/en/v0.8.17/)
 - [Solidity By Example](https://solidity-by-example.org/)
