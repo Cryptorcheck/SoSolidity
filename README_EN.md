@@ -6,7 +6,7 @@
 Relearn the details of Solidity. Welcome everyone to learn and exchange together ~
 
 ### Catalog
-- [basic](./01_Basic/)
+- [Basic](./01_Basic/)
   - [Helloworld](./01_Basic/01_HelloWorld/01_HelloWorld.sol)
   - [Data Type](./01_Basic/02_DataType/02_DataType.sol)
   - [Function](./01_Basic/03_Function/03_Function.sol)
@@ -42,7 +42,7 @@ Relearn the details of Solidity. Welcome everyone to learn and exchange together
   - [GasGolf](./03_Advance/09_GasGolf/09_GasGolf.sol)
   - [Time Lock](./03_Advance/10_TimeLock/10_TimeLock.sol)
   - [Reentrancy Attack](./03_Advance/11_ReentrancyAttack/11_ReentrancyAttack.sol)
-- [专业](./04_Profession/)
+- [Profession](./04_Profession/)
   - [Contract-Dutch Auction](./04_Profession/01_DutchAuction/01_DutchAuction.sol)
   - [Contract-English Auction](./04_Profession/02_EnglishAuction/02_EnglishAuction.sol)
   - [Contract-Crowed Fund](./04_Profession/03_CrowdFund/03_CrowdFund.sol)
