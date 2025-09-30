@@ -96,8 +96,9 @@ contract StakingRewards is Ownable {
         rewardToken = IERC20(_rewardTokenAddr);
     }
 
-    // 更新用户奖励状态
+    // 核心函数：更新用户奖励状态
     modifier UpdateReward(address _user) {
+        // 计算每质押一个代币，奖励多少代币
         rewardPerTokenPledge = getRewardPerTokenPledge();
         updateAt = lastTimeRewardApplicable();
 
@@ -112,12 +113,18 @@ contract StakingRewards is Ownable {
         return _min(block.timestamp, finishAt);
     }
 
-    function earned(address _user) public view returns (uint) {
-        return 1;
+    // 计算用户当前可领取的奖励总金额
+    function earned(address _account) public view returns (uint) {
+        return
+            (userPledge[_account] *
+                (getRewardPerTokenPledge() -
+                    userRewardPerTokenPaid[_account])) /
+            1e18 +
+            userRewards[_account];
     }
 
-    function _min(uint time1, uint time2) public view returns (uint) {
-        return 1;
+    function _min(uint x, uint y) private pure returns (uint) {
+        return x <= y ? x : y;
     }
 
     // 计算每质押一个代币奖励多少代币
@@ -129,16 +136,30 @@ contract StakingRewards is Ownable {
             totalPledge;
     }
 
-    // 设置分配速率和奖励金额
-    function notifyRewardAmount(
+    function setRewardDuration(uint _duration) external onlyOwner {
+        // 当前奖励周期未结束，不允许重新设置
+        require(
+            finishAt < block.timestamp,
+            "current reward duration not finished yet"
+        );
+        duration = _duration;
+    }
+
+    /**
+     * 设置奖励金额，并通过奖励金额计算奖励速率
+     * @param _amount 奖励金额
+     */
+    function setRewardAmount(
         uint _amount
     ) external onlyOwner UpdateReward(address(0)) {
-        // 当前时间超过奖励周期结束时间，创建一个新的奖励周期
-        // 当前时间还在奖励周期内，将剩余的奖励和新奖励金额累加后计算新的分配速率
-        // 更新奖励周期：奖励结束时间变更为当前时间 + 持续时间duration
         if (block.timestamp >= finishAt) {
+            // 当前时间超过奖励周期结束时间，创建一个新的奖励周期
             rewardRate = _amount / duration;
         } else {
+            // 当前时间还在奖励周期内
+            // 将剩余的奖励和新奖励金额累加后计算新的分配速率
+
+            // 计算剩余奖励：奖励速率 * 剩余奖励时间
             uint remainingReward = rewardRate * (finishAt - block.timestamp);
             rewardRate = (remainingReward + _amount) / duration;
         }
@@ -149,10 +170,34 @@ contract StakingRewards is Ownable {
             "reward amount > balance"
         );
 
+        // 更新奖励周期：奖励结束时间变更为当前时间 + 持续时间duration
         finishAt = block.timestamp + duration;
         updateAt = block.timestamp;
     }
 
     // 用户质押
-    function staking() public {}
+    function staking(uint _amount) external UpdateReward(msg.sender) {
+        require(_amount > 0, "amount < 0");
+        stakingToken.transferFrom(msg.sender, address(this), _amount);
+        userPledge[msg.sender] += _amount;
+        totalPledge += _amount;
+    }
+
+    // 提取质押
+    function withdraw(uint _amount) external UpdateReward(msg.sender) {
+        require(_amount > 0, "amount < 0");
+        require(_amount >= userPledge[msg.sender], "balance insufficient");
+        userPledge[msg.sender] -= _amount;
+        totalPledge -= _amount;
+        stakingToken.transfer(msg.sender, _amount);
+    }
+
+    // 提取收益
+    function getRewards() external UpdateReward(msg.sender) {
+        uint reward = userRewards[msg.sender];
+        if (reward > 0) {
+            userRewards[msg.sender] = 0;
+            rewardToken.transfer(msg.sender, reward);
+        }
+    }
 }
