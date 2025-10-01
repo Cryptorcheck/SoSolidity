@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-// 本节内容：质押收益
+// 本节内容：固定奖励速率下的质押收益
 
 /**
 业务介绍：
